@@ -35,17 +35,18 @@ function handleGetData (event){
         $quote.text(queenInfo[0].quote);
         $photo.attr("src", queenInfo[0].image_url);
         queenInfo[0].seasons.forEach(element => {
+            let table = document.querySelector('table')
             
-            let div = document.createElement('div');
-            div.className= 'dom'
-            let main = document.querySelector('main');
-            main.children[2].insertAdjacentElement("afterend",div)
-            let newH2 = document.createElement('h2');
-            newH2.textContent = "Season";
-            div.appendChild(newH2);
-            let newh3 = document.createElement('h3');
-            newh3.textContent= element.seasonNumber;
-            div.appendChild(newh3)
+            let tr = document.createElement('tr');
+            tr.className='dom';
+
+            let td = document.createElement('td');
+            td.textContent= element.seasonNumber;
+            tr.appendChild(td)
+            let td2 = document.createElement('td');
+            td2.textContent= element.place;
+            tr.appendChild(td2)
+            table.appendChild(tr)
 
             
         });
