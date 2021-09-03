@@ -4,6 +4,7 @@ const $name = $('#name');
 const $winner = $('#winner');
 const $quote = $('#quote');
 const $photo = $('#photo');
+let $table = $('table');
 
 
 
@@ -35,18 +36,24 @@ function handleGetData (event){
         $quote.text(queenInfo[0].quote);
         $photo.attr("src", queenInfo[0].image_url);
         queenInfo[0].seasons.forEach(element => {
-            let table = document.querySelector('table')
+            
             
             let tr = document.createElement('tr');
             tr.className='dom';
 
             let td = document.createElement('td');
             td.textContent= element.seasonNumber;
-            tr.appendChild(td)
+            tr.appendChild(td);
             let td2 = document.createElement('td');
-            td2.textContent= element.place;
+            if (element.place === 1) {
+                td2.textContent = "Winner";
+                td2.style.color = "red";
+            } else{
+                 td2.textContent = element.place
+                } ;
+          
             tr.appendChild(td2)
-            table.appendChild(tr)
+            $table.append(tr)
 
             
         });
