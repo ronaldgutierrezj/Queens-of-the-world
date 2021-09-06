@@ -47,6 +47,7 @@ function handleGetData (event){
             let td2 = document.createElement('td');
             if (element.place === 1) {
                 td2.textContent = "Winner";
+                td2.style.fontWeight = "bolder"
                 td2.style.color = "red";
             } else{
                  td2.textContent = element.place
