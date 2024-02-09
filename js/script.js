@@ -55,7 +55,7 @@ function handleGetData (event){
           
             tr.appendChild(td2)
             $table.append(tr)
-
+console.log(td)
             
         });
         
